@@ -10,7 +10,7 @@ export const fetchReviewsOfOffersAction = createAsyncThunk<Reviews, number, {
   extra: AxiosInstance;
 }>(
   'data/fetchReviewsOfOffers',
-  async (id, {dispatch, extra: api}) => {
+  async (id, {extra: api}) => {
     const { data } = await api.get<Reviews>(`${APIRoute.Comments}/${id}`);
     return data;
   },
@@ -22,7 +22,7 @@ export const sendReviewOfOfferAction = createAsyncThunk<Reviews, ReviewForm, {
   extra: AxiosInstance;
 }>(
   'data/sendReviewOfOffer',
-  async ({id, review, rating}, {dispatch, extra: api}) => {
+  async ({id, review, rating}, {extra: api}) => {
     const { data } = await api.post<Reviews>(`${APIRoute.Comments}/${id}`, {comment: review, rating});
     return data;
   },

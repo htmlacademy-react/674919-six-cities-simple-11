@@ -23,7 +23,7 @@ export const fetchOneOfferAction = createAsyncThunk<Offer, number, {
   extra: AxiosInstance;
 }>(
   'data/fetchOneOffer',
-  async (id, {dispatch, extra: api}) => {
+  async (id, {extra: api}) => {
     const { data } = await api.get<Offer>(`${APIRoute.Offers}/${id}`);
     return data;
   },
@@ -35,7 +35,7 @@ export const fetchOffersNearAction = createAsyncThunk<Offers, number, {
   extra: AxiosInstance;
 }>(
   'data/fetchOffersNear',
-  async (id, {dispatch, extra: api}) => {
+  async (id, {extra: api}) => {
     const { data } = await api.get<Offers>(`${APIRoute.Offers}/${id}/nearby`);
     return data;
   },
@@ -44,12 +44,8 @@ export const fetchOffersNearAction = createAsyncThunk<Offers, number, {
 export const clearErrorAction = createAsyncThunk(
   'data/clearError',
   (_arq, {dispatch}) => {
-    // store.dispatch(setOffersDataLoadingStatus(false));
     setTimeout(
       () => dispatch(setError(null)
       ), TIMEOUT_SHOW_ERROR);
-
-    // const timeout = () => new Promise(() => setTimeout(() => null, TIMEOUT_SHOW_ERROR));
-    // return await timeout();
   },
 );

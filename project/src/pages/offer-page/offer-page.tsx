@@ -19,7 +19,6 @@ const OfferPage = (): JSX.Element => {
   const paramsId = Number(params.id);
 
   useEffect(() => {
-    // debugger;
     if (offer === null || offer.id !== paramsId) {
       dispatch(fetchOneOfferAction(paramsId));
       dispatch(fetchOffersNearAction(paramsId));

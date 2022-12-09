@@ -62,9 +62,6 @@ const dataReducer = createSlice({
       .addCase(fetchOffersNearAction.fulfilled, (state, action) => {
         state.offersNear = action.payload;
       });
-    // .addCase(clearErrorAction, (state, action) => {
-    //   state.error = action.payload;
-    // });
   },
 });
 

@@ -1,26 +1,20 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import PlaceCards from '../../components/place-cards/place-cards';
 import {Offer} from '../../types/offers';
 import Map from '../../components/map/map';
 import {City, PropertyClassName} from '../../const';
 import CitiesList from '../../components/cities-list/cities-list';
-import {useAppDispatch, useAppSelector} from '../../hooks';
+import {useAppSelector} from '../../hooks';
 import MainEmpty from '../../components/main-empty/main-empty';
 import PlacesSorting from '../../components/places-sortting/places-sorting';
 import {NameSpace} from '../../store/name-space';
 import {getCurrentCity, getOffersCitySorted} from '../../store/data/selector';
-import {fetchOffersAction} from '../../store/data/api';
 
 const Main = (): JSX.Element => {
-  const dispatch = useAppDispatch();
   const activeCity = useAppSelector(getCurrentCity);
   const currentSortName = useAppSelector((state) => state[NameSpace.Data].sortName);
   const [activeOffer, setActiveOffer] = useState<Offer | undefined>(undefined);
   const offersOfCity = useAppSelector(getOffersCitySorted);
-
-  useEffect(() => {
-    dispatch(fetchOffersAction());
-  }, []);
 
   const handleChangeActiveOffer = useCallback(
     (offerA: Offer | undefined) => setActiveOffer(offerA),

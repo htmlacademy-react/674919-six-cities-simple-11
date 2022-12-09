@@ -1,5 +1,4 @@
 import {store} from '../store';
-// import {clearErrorAction, setError} from '../store/data/reducer';
 import {setError} from '../store/data/reducer';
 import {clearErrorAction} from '../store/api';
 
