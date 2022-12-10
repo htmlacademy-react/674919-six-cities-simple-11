@@ -1,10 +1,10 @@
-import React, {FormEvent, useEffect, useRef} from 'react';
+import React, {ChangeEvent, FormEvent, useEffect, useRef} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getAuthorizationStatus} from '../../store/user-process/selector';
 import {loginAction} from '../../store/user-process/api';
 import {AuthData} from '../../types/auth-data';
 import {Link, useNavigate} from 'react-router-dom';
-import {AppRoute, AuthorizationStatus} from '../../const';
+import {AppRoute, AuthorizationStatus, Regulars} from '../../const';
 import {getCurrentCity} from '../../store/data/selector';
 
 const Login = (): JSX.Element => {
@@ -34,6 +34,17 @@ const Login = (): JSX.Element => {
     }
   };
 
+  const handlePasswordChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    const target = evt.target;
+    const {value} = target;
+
+    if (!Regulars.Numbers.test(value) || !Regulars.Symbols.test(value)) {
+      target.setCustomValidity('Пароль должен состоять минимум из одной буквы и цифры');
+    } else {
+      target.setCustomValidity('');
+    }
+  };
+
   return (
     <main className="page__main page__main--login">
       <div className="page__login-container container">
@@ -48,7 +59,7 @@ const Login = (): JSX.Element => {
 
             <div className="login__input-wrapper form__input-wrapper">
               <label className="visually-hidden">Password</label>
-              <input className="login__input form__input" ref={passwordRef} type="password" name="password" placeholder="Password" required/>
+              <input className="login__input form__input" ref={passwordRef} onChange={handlePasswordChange} type="password" name="password" placeholder="Password" required/>
             </div>
 
             <button className="login__submit form__submit button" type="submit">Sign in</button>

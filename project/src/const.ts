@@ -67,3 +67,8 @@ export enum APIRoute {
 }
 
 export const TIMEOUT_SHOW_ERROR = 4000;
+
+export const Regulars = {
+  Numbers: /^(?=.*[0-9]).*$/,
+  Symbols: /^(?=.*[A-Za-zА-Яа-я]).*$/,
+} as const;

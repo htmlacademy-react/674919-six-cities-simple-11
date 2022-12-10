@@ -32,7 +32,7 @@ const Form = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (!formData.id) {
+    if (formData.id !== String(paramsId)) {
       setFormData({...formData, id: String(paramsId)});
     }
 
@@ -45,7 +45,13 @@ const Form = (): JSX.Element => {
 
       dispatch(setReviewRestStatus());
     }
-  }, [reviewStatus]);
+  }, [reviewStatus, paramsId]);
+
+  const handleRatingSelect = (star: string) => {
+    if (star !== formData.rating) {
+      setFormData({...formData, rating: star});
+    }
+  };
 
   return (
     <form className="reviews__form form" ref={formRef} action="#" method="post" onSubmit={handleFormSubmit}>
@@ -55,9 +61,9 @@ const Form = (): JSX.Element => {
         {
           FiveStar.map((star) => (
             <React.Fragment key={star}>
-              <input className="form__rating-input visually-hidden" onChange={handleChangeForm} name="rating" value={star} id={`${star}-stars`} type="radio"/>
+              <input className="form__rating-input visually-hidden" name="rating" value={star} id={`${star}-stars`} type="radio"/>
 
-              <label htmlFor={`${star}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
+              <label htmlFor={`${star}-stars`} className="reviews__rating-label form__rating-label" onClick={() => {handleRatingSelect(String(star));}} title="perfect">
                 <svg className="form__star-image" width="37" height="33">
                   <use xlinkHref="#icon-star"></use>
                 </svg>
