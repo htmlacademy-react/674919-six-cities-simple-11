@@ -4,7 +4,7 @@ import Map from '../../components/map/map';
 import PlaceCards from '../../components/place-cards/place-cards';
 import {useParams} from 'react-router-dom';
 import {Offers} from '../../types/offers';
-import {Ratings, PropertyClassName, City} from '../../const';
+import {City, PropertiesName, PropertyClassName, PropertyFeatures, Ratings, NUMBER_ONE} from '../../const';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {fetchOffersNearAction, fetchOneOfferAction} from '../../store/data/api';
 import {getOffer, getOfferDataLoadingStatus, getOffersNear} from '../../store/data/selector';
@@ -82,15 +82,15 @@ const OfferPage = (): JSX.Element => {
 
             <ul className="property__features">
               <li className="property__feature property__feature--entire">
-                {type}
+                {PropertyFeatures[type]}
               </li>
 
               <li className="property__feature property__feature--bedrooms">
-                {bedrooms} Bedrooms
+                {bedrooms} {(bedrooms === NUMBER_ONE ? PropertiesName.Bedroom : PropertiesName.Bedrooms)}
               </li>
 
               <li className="property__feature property__feature--adults">
-                Max {maxAdults} adults
+                Max {maxAdults} {(maxAdults === NUMBER_ONE ? PropertiesName.Adult : PropertiesName.Adults)}
               </li>
             </ul>
 

@@ -26,6 +26,22 @@ export const Ratings: string[] = ['20%', '40%', '60%', '80%', '100%'];
 
 export const FiveStar: number[] = [5, 4, 3, 2, 1];
 
+export enum PropertiesName {
+  Bedroom = 'Bedroom',
+  Bedrooms = 'Bedrooms',
+  Adult = 'adult',
+  Adults = 'adults',
+}
+
+export const PropertyFeatures: {[key: string]: string} = {
+  ['apartment']: 'Apartment',
+  ['room']: 'Private Room',
+  ['house']: 'House',
+  ['hotel']: 'Hotel',
+} as const;
+
+export const NUMBER_ONE = 1;
+
 export const Months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 export enum Markers {
