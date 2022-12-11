@@ -2,7 +2,6 @@ import React, {memo} from 'react';
 import {Link} from 'react-router-dom';
 import {Offer} from '../../types/offers';
 import {Ratings} from '../../const';
-import {PropertyFeatures} from '../../const';
 
 type PlaceCardProps = {
   offer: Offer;
@@ -49,7 +48,7 @@ const PlaceCard = ({offer, onSetActiveOffer, itemClassName}: PlaceCardProps): JS
           <Link to={`/offer/${id}`}>{title}</Link>
         </h2>
 
-        <p className="place-card__type">{PropertyFeatures[type]}</p>
+        <p className="place-card__type">{type}</p>
       </div>
     </article>
   );

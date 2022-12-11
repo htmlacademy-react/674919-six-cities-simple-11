@@ -11,7 +11,7 @@ const PlacesSorting = ({currentSortName}: PlacesSortingProps): JSX.Element => {
   const [isSortOpen, setSortOpen] = useState(false);
   const dispatch = useAppDispatch();
 
-  const handleOpenStateSort = () => {
+  const handleSortStateOpen = () => {
     setSortOpen(!isSortOpen);
   };
 
@@ -24,7 +24,7 @@ const PlacesSorting = ({currentSortName}: PlacesSortingProps): JSX.Element => {
   };
 
   return (
-    <form className="places__sorting" action="#" method="get" onClick={handleOpenStateSort}>
+    <form className="places__sorting" action="#" method="get" onClick={handleSortStateOpen}>
       <span className="places__sorting-caption">Sort by</span>
 
       <span className="places__sorting-type" tabIndex={0}>&nbsp;{currentSortName}

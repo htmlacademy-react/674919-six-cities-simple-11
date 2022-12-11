@@ -6,7 +6,7 @@ import {City, PropertyClassName} from '../../const';
 import CitiesList from '../../components/cities-list/cities-list';
 import {useAppSelector} from '../../hooks';
 import MainEmpty from '../../components/main-empty/main-empty';
-import PlacesSorting from '../../components/places-sortting/places-sorting';
+import PlacesSorting from '../../components/places-sorting/places-sorting';
 import {NameSpace} from '../../store/name-space';
 import {getCurrentCity, getOffersCitySorted} from '../../store/data/selector';
 
@@ -16,7 +16,7 @@ const Main = (): JSX.Element => {
   const [activeOffer, setActiveOffer] = useState<Offer | undefined>(undefined);
   const offersOfCity = useAppSelector(getOffersCitySorted);
 
-  const handleChangeActiveOffer = useCallback(
+  const handleActiveOfferChange = useCallback(
     (offerA: Offer | undefined) => setActiveOffer(offerA),
     []
   );
@@ -46,7 +46,7 @@ const Main = (): JSX.Element => {
                   currentSortName={currentSortName}
                 />
 
-                <PlaceCards offers={offersOfCity} onSetActiveOffer={handleChangeActiveOffer} listClassName={PropertyClassName.PlaceCardListCities} itemClassName={PropertyClassName.PlaceCardItemCities}/>
+                <PlaceCards offers={offersOfCity} onSetActiveOffer={handleActiveOfferChange} listClassName={PropertyClassName.PlaceCardListCities} itemClassName={PropertyClassName.PlaceCardItemCities}/>
               </section>
 
               <div className="cities__right-section">

@@ -10,7 +10,7 @@ const PageNotExist = (): JSX.Element => {
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const login = useAppSelector(getLogin);
 
-  const HandleLogout = (evt: MouseEvent<HTMLAnchorElement>) => {
+  const HandleLinkLogout = (evt: MouseEvent<HTMLAnchorElement>) => {
     evt.preventDefault();
     dispatch(logoutAction());
   };
@@ -45,7 +45,7 @@ const PageNotExist = (): JSX.Element => {
                       </Link>
                       :
 
-                      <a className="header__nav-link" href="#" onClick={HandleLogout}>
+                      <a className="header__nav-link" href="#" onClick={HandleLinkLogout}>
                         <span className="header__signout">Sign out</span>
                       </a>
                   }

@@ -14,12 +14,12 @@ const Form = (): JSX.Element => {
   const params = useParams();
   const paramsId = Number(params.id);
 
-  const handleChangeForm = (evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+  const handleFormChange = (evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const {name, value} = evt.target;
     setFormData({...formData, [name]: value});
   };
 
-  const isSendForm: boolean = (
+  const isFormSend: boolean = (
     formData.review.length >= 50
     && formData.review.length <= 300
     && formData.rating.length !== 0
@@ -73,7 +73,7 @@ const Form = (): JSX.Element => {
         }
       </div>
 
-      <textarea className="reviews__textarea form__textarea" id="review" onChange={handleChangeForm} name="review" value={formData.review} placeholder="Tell how was your stay, what you like and what can be improved" disabled={reviewStatus !== ReviewStatus.ReviewRest}></textarea>
+      <textarea className="reviews__textarea form__textarea" id="review" onChange={handleFormChange} name="review" value={formData.review} placeholder="Tell how was your stay, what you like and what can be improved" disabled={reviewStatus !== ReviewStatus.ReviewRest}></textarea>
 
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
@@ -81,7 +81,7 @@ const Form = (): JSX.Element => {
           your stay with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
 
-        <button className="reviews__submit form__submit button" type="submit" disabled={!isSendForm}>Submit</button>
+        <button className="reviews__submit form__submit button" type="submit" disabled={!isFormSend}>Submit</button>
       </div>
     </form>
   );

@@ -5,7 +5,7 @@ import Login from '../../pages/login/login';
 import OfferPage from '../../pages/offer-page/offer-page';
 import PageNotExist from '../../pages/page-not-exist/page-not-exist';
 import Layout from '../layout/layout';
-import HistoryRouter from '../history-route/history-route';
+import HistoryRoute from '../history-route/history-route';
 import browserHistory from '../../browser-history';
 import {useEffect} from 'react';
 import {fetchOffersAction} from '../../store/data/api';
@@ -19,7 +19,7 @@ const App = () => {
   }, []);
 
   return (
-    <HistoryRouter history={browserHistory}>
+    <HistoryRoute history={browserHistory}>
       <Routes>
         <Route path={AppRoute.Main} element={<Layout/>}>
           <Route index element={<Main/>}/>
@@ -34,7 +34,7 @@ const App = () => {
           element={<PageNotExist/>}
         />
       </Routes>
-    </HistoryRouter>
+    </HistoryRoute>
   );
 };
 

@@ -8,7 +8,7 @@ const CitiesList = (): JSX.Element => {
   const activeCity = useAppSelector(getCurrentCity);
   const dispatch = useAppDispatch();
 
-  const handleLinkChangeCity = (evt: MouseEvent<HTMLAnchorElement>, city: string) => {
+  const handleLinkCityChange = (evt: MouseEvent<HTMLAnchorElement>, city: string) => {
     evt.preventDefault();
     dispatch(changeCity(city));
   };
@@ -18,7 +18,7 @@ const CitiesList = (): JSX.Element => {
       {
         Cities.map((city) => (
           <li className="locations__item" key={city}>
-            <a className={`locations__item-link tabs__item${(city === activeCity) ? ' tabs__item--active' : ''}`} href="#" onClick={(evt) => {handleLinkChangeCity(evt, city);}}>
+            <a className={`locations__item-link tabs__item${(city === activeCity) ? ' tabs__item--active' : ''}`} href="#" onClick={(evt) => {handleLinkCityChange(evt, city);}}>
               <span>{city}</span>
             </a>
           </li>
