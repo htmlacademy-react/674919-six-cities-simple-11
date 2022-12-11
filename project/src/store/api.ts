@@ -1,6 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {TIMEOUT_SHOW_ERROR} from '../const';
-import {setError, setOffersDataLoadingStatus} from './data/reducer';
+import {setError, setOffersDataLoadingStatus} from './data/data';
 
 export const clearErrorAction = createAsyncThunk(
   'data/clearError',

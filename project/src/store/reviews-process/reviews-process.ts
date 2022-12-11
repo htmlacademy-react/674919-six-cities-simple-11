@@ -9,7 +9,7 @@ const initialState: ReviewsProcess = {
   reviewsOfOffer: [],
 };
 
-const reviewsReducer = createSlice({
+const reviewsProcess = createSlice({
   name: NameSpace.Reviews,
   initialState,
   reducers: {
@@ -32,5 +32,5 @@ const reviewsReducer = createSlice({
   },
 });
 
-export const {setReviewRestStatus} = reviewsReducer.actions;
-export default reviewsReducer.reducer;
+export const {setReviewRestStatus} = reviewsProcess.actions;
+export default reviewsProcess.reducer;

@@ -16,7 +16,7 @@ const initialState: Data = {
   error: null,
 };
 
-const dataReducer = createSlice({
+const data = createSlice({
   name: NameSpace.Data,
   initialState,
   reducers: {
@@ -65,5 +65,5 @@ const dataReducer = createSlice({
   },
 });
 
-export const {changeCity, clearErrorAction, setError, setOffersDataLoadingStatus, setSortName} = dataReducer.actions;
-export default dataReducer.reducer;
+export const {changeCity, clearErrorAction, setError, setOffersDataLoadingStatus, setSortName} = data.actions;
+export default data.reducer;

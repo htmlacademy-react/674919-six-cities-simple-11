@@ -1,7 +1,7 @@
 import React, {useState, MouseEvent, memo} from 'react';
 import {SortList} from '../../const';
 import {useAppDispatch} from '../../hooks';
-import {setSortName} from '../../store/data/reducer';
+import {setSortName} from '../../store/data/data';
 
 type PlacesSortingProps = {
   currentSortName: string;
