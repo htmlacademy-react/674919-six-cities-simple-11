@@ -19,22 +19,22 @@ type MapProps = {
   elementClassName: string;
 }
 
+const defaultCustomIcon = new Icon({
+  iconUrl: Markers.Default,
+  iconSize: [27, 39],
+  iconAnchor: [27, 39],
+});
+
+const currentCustomIcon = new Icon({
+  iconUrl: Markers.Active,
+  iconSize: [27, 39],
+  iconAnchor: [27, 39],
+});
+
 const Map = ({offers, city, activeOffer, elementClassName}: MapProps): JSX.Element => {
   const activeCity = useAppSelector(getCurrentCity);
   const mapRef = useRef(null);
   const map = useMap(activeCity, mapRef, city);
-
-  const defaultCustomIcon = new Icon({
-    iconUrl: Markers.Default,
-    iconSize: [27, 39],
-    iconAnchor: [27, 39],
-  });
-
-  const currentCustomIcon = new Icon({
-    iconUrl: Markers.Active,
-    iconSize: [27, 39],
-    iconAnchor: [27, 39],
-  });
 
   useEffect(() => {
     const markers: Marker[] = [];

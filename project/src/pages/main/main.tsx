@@ -24,7 +24,7 @@ const Main = (): JSX.Element => {
   const emptyCityClass = !offersOfCity.length ? 'page__main--index-empty' : '';
 
   return (
-    <main className={`page__main page__main--index ${emptyCityClass}`}>
+    <main className={`page__main page__main--index ${emptyCityClass}`} data-testid="main">
       <h1 className="visually-hidden">Cities</h1>
 
       <div className="tabs">

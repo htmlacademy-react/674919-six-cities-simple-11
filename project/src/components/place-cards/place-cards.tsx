@@ -10,7 +10,7 @@ type PlaceCardsProps = {
 };
 
 const PlaceCards = ({offers, onSetActiveOffer, listClassName, itemClassName}: PlaceCardsProps): JSX.Element => (
-  <div className={`${listClassName} places__list`}>
+  <div className={`${listClassName} places__list`} data-testid="places-list">
     {
       offers && offers.map((offer) => (
         <PlaceCard offer={offer} onSetActiveOffer={onSetActiveOffer} itemClassName={itemClassName} key={offer.id}/>

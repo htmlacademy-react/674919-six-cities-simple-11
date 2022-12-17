@@ -4,7 +4,7 @@ import {AppRoute, AuthorizationStatus, PageModifierClassType} from '../../const'
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getAuthorizationStatus, getLogin} from '../../store/user-process/selector';
 import {logoutAction} from '../../store/user-process/api';
-import LoadingScreen from '../loading-screen/loading-screen.';
+import LoadingScreen from '../loading-screen/loading-screen';
 import {getOffersDataLoadingStatus} from '../../store/data/selector';
 
 const Layout = (): JSX.Element => {
@@ -22,7 +22,7 @@ const Layout = (): JSX.Element => {
 
   return (
     <div className={`page ${pageClassName ? pageClassName : ''}`}>
-      <header className="header">
+      <header className="header" data-testid="header">
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
@@ -68,9 +68,6 @@ const Layout = (): JSX.Element => {
         </div>
       </header>
 
-      {/*{isOffersDataLoading ?*/}
-      {/*  <LoadingScreen/>*/}
-      {/*  : <Outlet/>}*/}
       {isOffersDataLoading &&
         <LoadingScreen/>}
       <Outlet/>

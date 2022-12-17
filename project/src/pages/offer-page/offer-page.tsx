@@ -10,6 +10,9 @@ import {fetchOffersNearAction, fetchOneOfferAction} from '../../store/data/api';
 import {getOffer, getOfferDataLoadingStatus, getOffersNear} from '../../store/data/selector';
 import {fetchReviewsOfOffersAction} from '../../store/reviews-process/api';
 
+const ZERO = 0;
+const MAX_COUNT_IMAGES = 6;
+
 const OfferPage = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const offer = useAppSelector(getOffer);
@@ -24,8 +27,7 @@ const OfferPage = (): JSX.Element => {
       dispatch(fetchOffersNearAction(paramsId));
       dispatch(fetchReviewsOfOffersAction(paramsId));
     }
-  }, [offer, paramsId]);
-
+  }, [dispatch, offer, paramsId]);
 
   if (isOffersDataLoading) {
     return <div>Загрузка данных...</div>;
@@ -37,7 +39,7 @@ const OfferPage = (): JSX.Element => {
 
   const offersNearChange: Offers = offersNear.concat([offer]);
   const {id, bedrooms, description, goods, host, images, isPremium, maxAdults, price, title, type, rating} = offer;
-  const imagesSliced = images.slice(0, 6);
+  const imagesSliced = images.slice(ZERO, MAX_COUNT_IMAGES);
   const ratingPercent = Ratings[Math.round(rating) - 1];
 
   return (

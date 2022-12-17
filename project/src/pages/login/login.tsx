@@ -16,10 +16,16 @@ const Login = (): JSX.Element => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (authorizationStatus === AuthorizationStatus.Auth) {
+    let isNeedUpdate = true;
+
+    if (authorizationStatus === AuthorizationStatus.Auth && isNeedUpdate) {
       navigate(AppRoute.Main);
     }
-  }, [authorizationStatus]);
+
+    return () => {
+      isNeedUpdate = false;
+    };
+  }, [navigate, authorizationStatus]);
 
   const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -54,12 +60,12 @@ const Login = (): JSX.Element => {
           <form className="login__form form" action="#" method="post" onSubmit={handleFormSubmit}>
             <div className="login__input-wrapper form__input-wrapper">
               <label className="visually-hidden">E-mail</label>
-              <input className="login__input form__input" ref={loginRef} type="email" name="email" placeholder="Email" required/>
+              <input className="login__input form__input" data-testid="login" ref={loginRef} type="email" name="email" placeholder="Email" required/>
             </div>
 
             <div className="login__input-wrapper form__input-wrapper">
               <label className="visually-hidden">Password</label>
-              <input className="login__input form__input" ref={passwordRef} onChange={handlePasswordChange} type="password" name="password" placeholder="Password" required/>
+              <input className="login__input form__input" data-testid="password" ref={passwordRef} onChange={handlePasswordChange} type="password" name="password" placeholder="Password" required/>
             </div>
 
             <button className="login__submit form__submit button" type="submit">Sign in</button>

@@ -6,6 +6,10 @@ import {getReviewLoadingStatus} from '../../store/reviews-process/selector';
 import {setReviewRestStatus} from '../../store/reviews-process/reviews-process';
 import {useParams} from 'react-router-dom';
 
+const REVIEW_MIN_LENGTH = 50;
+const REVIEW_MAX_LENGTH = 300;
+const RATING_ZERO_LENGTH = 0;
+
 const Form = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const reviewStatus = useAppSelector(getReviewLoadingStatus);
@@ -20,9 +24,9 @@ const Form = (): JSX.Element => {
   };
 
   const isFormSend: boolean = (
-    formData.review.length >= 50
-    && formData.review.length <= 300
-    && formData.rating.length !== 0
+    formData.review.length >= REVIEW_MIN_LENGTH
+    && formData.review.length <= REVIEW_MAX_LENGTH
+    && formData.rating.length !== RATING_ZERO_LENGTH
     && reviewStatus === ReviewStatus.ReviewRest
   );
 
@@ -45,7 +49,7 @@ const Form = (): JSX.Element => {
 
       dispatch(setReviewRestStatus());
     }
-  }, [reviewStatus, paramsId]);
+  }, [dispatch, formData, reviewStatus, paramsId]);
 
   const handleRatingSelect = (star: string) => {
     if (star !== formData.rating) {
