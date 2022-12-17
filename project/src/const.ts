@@ -3,6 +3,7 @@ export enum AppRoute {
   Login = '/login',
   Offer= '/offer/:id',
   PageNotExist= '/404',
+  Lose = '/lose',
 }
 
 export const PageModifierClassType: {[key: string]: string} = {

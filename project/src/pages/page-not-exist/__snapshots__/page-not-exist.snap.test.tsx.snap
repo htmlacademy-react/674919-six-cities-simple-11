@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: NotFoundScreen should render correctly 1`] = `
+<div>
+  <div
+    class="page page--gray"
+  >
+    <header
+      class="header"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="header__wrapper"
+        >
+          <div
+            class="header__left"
+          >
+            <a
+              class="header__logo-link"
+              href="/"
+              title="Перейти на главную"
+            >
+              <img
+                alt="6 cities logo"
+                class="header__logo"
+                height="41"
+                src="img/logo.svg"
+                width="81"
+              />
+            </a>
+          </div>
+          <nav
+            class="header__nav"
+          >
+            <ul
+              class="header__nav-list"
+            >
+              <li
+                class="header__nav-item"
+              >
+                <a
+                  class="header__nav-link"
+                  href="/login"
+                >
+                  <span
+                    class="header__signout"
+                  >
+                    Sign in
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main
+      class="page__main page__main--property"
+    >
+      <div
+        class="container"
+      >
+        404 Not Found
+      </div>
+    </main>
+  </div>
+</div>
+`;

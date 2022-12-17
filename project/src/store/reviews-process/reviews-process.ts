@@ -22,7 +22,7 @@ const reviewsProcess = createSlice({
       .addCase(fetchReviewsOfOffersAction.fulfilled, (state, action) => {
         state.reviewsOfOffer = action.payload;
       })
-      .addCase(sendReviewOfOfferAction.pending, (state, action) => {
+      .addCase(sendReviewOfOfferAction.pending, (state) => {
         state.isReviewsLoading = ReviewStatus.ReviewPending;
       })
       .addCase(sendReviewOfOfferAction.fulfilled, (state, action) => {

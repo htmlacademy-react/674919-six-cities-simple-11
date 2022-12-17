@@ -5,7 +5,7 @@ import {setError, setOffersDataLoadingStatus} from './data/data';
 export const clearErrorAction = createAsyncThunk(
   'data/clearError',
   (_arq, {dispatch}) => {
-    dispatch(setOffersDataLoadingStatus(false));
+    dispatch(setOffersDataLoadingStatus());
     setTimeout(
       () => dispatch(setError(null)
       ), TIMEOUT_SHOW_ERROR);
